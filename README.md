@@ -1,4 +1,4 @@
-# News Search App
+# News Search API
 
 This is a simple web application that allows users to search for news articles using keywords. It utilizes the [News API](https://newsapi.org/) to fetch news articles based on the user's search query.
 
