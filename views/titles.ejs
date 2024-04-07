@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Articles</title>
+
+    <style>
+        /* CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        li {
+            list-style: none;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #f8f8f8;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin: 30px 0;
+        }
+
+        .btn-primary {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 6px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            transition-duration: 0.4s;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Articles</h1>
+
+        <div class="btn-container">
+            <button class=" btn-primary" onclick="window.location.href = '/sources'">Get News Sources</button>
+        </div>
+
+        <ul>
+            <% articles.forEach(article=> { %>
+                <li>
+                    <h2>
+                        <%= article.title %>
+                    </h2>
+                    <h3>
+                        <%= article.source.name %>
+                    </h3>
+                    <p>
+                        <%= article.description %>
+                    </p>
+
+                    <% if (article.author !==null) { %>
+                        <p><strong>Author:</strong>
+                            <%= article.author %>
+                        </p>
+                        <% } else { %>
+                            <p><strong>Author:</strong> Unknown</p>
+                            <% } %>
+                                <p><strong>Published:</strong>
+                                    <%= new Date(article.publishedAt).toLocaleDateString() %>
+                                </p>
+                                <p><a href="<%= article.url %>" target="_blank">Read more</a></p>
+                </li>
+                <% }); %>
+        </ul>
+        <a href="/sources">Back</a>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>News Sources</title>
+  <style>
+    /* CSS styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      display: inline-block;
+      margin: 0 10px;
+    }
+
+    a {
+      text-decoration: none;
+      color: #008CBA;
+      font-weight: bold;
+      font-size: 16px;
+
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .btn-secondary {
+      background-color: #008CBA;
+      border: none;
+      color: white;
+      padding: 8px 18px;
+      border-radius: 6px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      transition-duration: 0.4s;
+    }
+
+    .btn-secondary:hover {
+      background-color: #0079a1;
+
+    }
+
+    .form-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 30px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>News Sources</h1>
+
+    <div class="form-container">
+      <form action="/titles" method="GET">
+        <label for="search">Search for articles:</label>
+        <input type="text" name="title" id="search" placeholder="Enter a keyword...">
+        <button class="btn-secondary" type="submit">Submit</button>
+      </form>
+    </div>
+
+    <ul>
+      <% sources.forEach(source=> { %>
+        <li>
+          <a href="/sources/<%= source.id %>">
+            <%= source.name %>
+          </a>
+          <p>
+            <%= source.description %>
+          </p>
+        </li>
+        <% }); %>
+    </ul>
+  </div>
+</body>
+</body>
+
+</html>
